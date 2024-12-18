@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+
+  <script>
+    // Correctly modifying the innerHTML after the DOM has fully loaded
+    window.addEventListener('load', function() {
+        document.getElementById('myDiv').innerHTML = "<p>This text replaces the previous content.</p>";
+
+    let newDiv = document.createElement('div');
+    newDiv.id = 'anotherDiv';
+    newDiv.innerHTML = "<p>This div should be appended.</p>";
+    document.body.appendChild(newDiv);
+      });
+  </script>
+</body>
+</html>
