@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+
+  <script>
+    // Incorrectly using innerHTML to modify an element that doesn't exist yet
+    document.getElementById('myDiv').innerHTML = "<p>This text replaces the previous content.</p>";
+
+    // This script attempts to append an element that's not in the DOM yet
+    let newDiv = document.createElement('div');
+    newDiv.id = 'anotherDiv';
+    newDiv.innerHTML = "<p>This div should be appended.</p>";
+    document.body.appendChild(newDiv);
+  </script>
+</body>
+</html>
